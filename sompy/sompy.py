@@ -262,7 +262,7 @@ class SOM(object):
 
         return ms, mpd
 
-    def rough_train(self, njob=1, shared_memory=False, trainlen=None, radiusin=None, radiusfin=None,trainlen_factor=1,maxtrainlen=np.Inf):
+    def rough_train(self, njob=1, shared_memory=False, trainlen=None, radiusin=None, radiusfin=None,trainlen_factor=1,maxtrainlen=np.inf):
         logging.info(" Rough training...")
 
         ms, mpd = self._calculate_ms_and_mpd()
@@ -282,7 +282,7 @@ class SOM(object):
 
         self._batchtrain(trainlen, radiusin, radiusfin, njob, shared_memory)
 
-    def finetune_train(self, njob=1, shared_memory=False, trainlen=None, radiusin=None, radiusfin=None,trainlen_factor=1,maxtrainlen=np.Inf):
+    def finetune_train(self, njob=1, shared_memory=False, trainlen=None, radiusin=None, radiusfin=None,trainlen_factor=1,maxtrainlen=np.inf):
         logging.info(" Finetune training...")
 
         ms, mpd = self._calculate_ms_and_mpd()
@@ -645,7 +645,7 @@ class SOM(object):
         dlen = D.shape[0]
         dim = D.shape[1]
         munits = np.ceil(5 * (dlen ** 0.5))
-        A = np.ndarray(shape=[dim, dim]) + np.Inf
+        A = np.ndarray(shape=[dim, dim]) + np.inf
 
         for i in range(dim):
             D[:, i] = D[:, i] - np.mean(D[np.isfinite(D[:, i]), i])
